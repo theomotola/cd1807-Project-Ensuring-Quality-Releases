@@ -4,20 +4,20 @@ name: Azure Pipelines
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 trigger:
-- main
+#- main
 
 # ToDo: Replace the agent pool name, if you are using Udacity Cloud lab. 
 # Otherwise, comment out the line below. 
-pool: myAgentPool
+pool: testing pool
 
 variables:
   python.version: '3.7.6'
   # ToDo: Replace the service connection name as used in the DevOps project settings
-  azureServiceConnectionId: 'myServiceConnection'
+  azureServiceConnectionId: 'ae905fde-e5ea-40f0-a6db-35397678cc4c'
   # Project root folder. Point to the folder containing manage.py file.
   projectRoot: $(System.DefaultWorkingDirectory)
   # Environment name
-  environmentName: 'test'
+  environmentName: 'test environment'
 
 stages:
 #--------------------------------------------#  
@@ -33,7 +33,7 @@ stages:
     - task: TerraformInstaller@0
       displayName: 'Terrafom installation'
       inputs:
-        terraformVersion: '1.2.9'
+        terraformVersion: '1.3.1'
     
     # Run Terraform Init on the pipeline agent 
     # ToDo: Replace the resource group name, storage account name, and container name below
@@ -45,7 +45,7 @@ stages:
         workingDirectory: '$(System.DefaultWorkingDirectory)/terraform/environments/test'
         backendServiceArm: '$(azureServiceConnectionId)'
         backendAzureRmResourceGroupName: 'Azuredevops'
-        backendAzureRmStorageAccountName: 'tfstate281845088'
+        backendAzureRmStorageAccountName: 'tfstate170202006'
         backendAzureRmContainerName: 'tfstate'
         backendAzureRmKey: 'test.terraform.tfstate'
 
@@ -60,17 +60,17 @@ stages:
     # Generate an SSH key pair in your local/AZ Cloud shell. Use the public key in the Terraform VM module. 
     # Install public key and private key file to the pipeline agent, using the task below. 
     # ToDo: Change the inputs value below
-    # - task: InstallSSHKey@0
-    #   inputs:
-    #     knownHostsEntry: 'KNOWN_HOSTS_STRING' # variable value
-    #     sshPublicKey: 'PUBLIC_KEY'            # variable value
-    #     sshKeySecureFile: 'id_rsa' # Use secure file feature in the pipeline library UI to save the "id_rsa" file, as mentioned here: https://learn.microsoft.com/en-us/azure/devops/pipelines/library/secure-files?view=azure-devops#add-a-secure-file
+    - task: InstallSSHKey@0
+      inputs:
+        knownHostsEntry: 'KNOWN_HOSTS_STRING' # variable value
+        sshPublicKey: 'PUBLIC_KEY'            # variable value
+        sshKeySecureFile: 'id_rsa' # Use secure file feature in the pipeline library UI to save the "id_rsa" file, as mentioned here: https://learn.microsoft.com/en-us/azure/devops/pipelines/library/secure-files?view=azure-devops#add-a-secure-file
     
-    # - task: DownloadSecureFile@1
-    #  name: udacity_public_key
-    #  displayName: 
-    #  inputs:
-    #   secureFile: 
+    - task: DownloadSecureFile@1
+     name: udacity_public_key
+     displayName: 
+     inputs:
+      secureFile: 
 
     
     # Run Terraform Apply
@@ -99,7 +99,7 @@ stages:
     - task: CmdLine@2
       displayName: Install Newman
       inputs:
-        script:           # ToDo: Write your commands to install newman
+        script:  sudo npm install -g newman          # ToDo: Write your commands to install newman
         workingDirectory: $(System.DefaultWorkingDirectory)
     # Postman Data Validation Test Suite    
     # ToDo: Verify the working directory and the newman scripts
