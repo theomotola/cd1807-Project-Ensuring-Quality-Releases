@@ -8,12 +8,12 @@ trigger:
 
 # ToDo: Replace the agent pool name, if you are using Udacity Cloud lab. 
 # Otherwise, comment out the line below. 
-pool: default
+pool: Default
 
 variables:
   python.version: '3.7.6'
   # ToDo: Replace the service connection name as used in the DevOps project settings
-  azureServiceConnectionId: 'b6e10aa4-a451-40f8-92ea-c884fe35d9c2'
+  azureServiceConnectionId: '0c7436df-9359-4a04-b572-96ab6d89334c'
   # Project root folder. Point to the folder containing manage.py file.
   projectRoot: $(System.DefaultWorkingDirectory)
   # Environment name
@@ -168,7 +168,7 @@ stages:
     # ToDo: Complete the ArchiveFiles@2 task and publish step 
   - job: PerformanceTests
     pool:
-      vmImage: 'default'
+      vmImage: 'Default'
     steps:
     - bash: |
         sudo apt-get install openjdk-11-jre-headless -y
@@ -210,7 +210,7 @@ stages:
   # ToDo: Provide <environment name> you created in your DevOps project
   - deployment: FakeRestAPI
     pool:
-      vmImage: 'default'      
+      vmImage: 'Default'      
     environment: '$(environmentName)'   # ToDo
     strategy:
       runOnce:
