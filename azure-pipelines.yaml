@@ -14,6 +14,7 @@ variables:
   python.version: '3.7.6'
   # ToDo: Replace the service connection name as used in the DevOps project settings
   azureServiceConnectionId: 'd1ce9d62-8323-4a3b-b748-fbcd04b51435'
+  azureSubscription: 'Finaltesting'
   # Project root folder. Point to the folder containing manage.py file.
   projectRoot: $(System.DefaultWorkingDirectory)
   # Environment name
@@ -43,7 +44,8 @@ stages:
         provider: 'azurerm'
         command: 'init'
         workingDirectory: '$(System.DefaultWorkingDirectory)/terraform/environments/test'
-        backendServiceArm: '$(azureServiceConnectionId)'
+        # backendServiceArm: '$(azureServiceConnectionId)'
+        # backendServiceArm: '$(azureSubscription)'
         backendAzureRmResourceGroupName: 'tfstate'
         backendAzureRmStorageAccountName: 'tfstate289024787'
         backendAzureRmContainerName: 'tfstate'
