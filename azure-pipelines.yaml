@@ -169,6 +169,7 @@ stages:
     # JMeter (Performance) Test Suite - Archive
     # ToDo: Complete the ArchiveFiles@2 task and publish step 
   - job: PerformanceTests
+    dependsOn: BuildArtifact
     pool:
       vmImage: 'Default'
     steps:
