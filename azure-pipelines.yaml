@@ -226,9 +226,9 @@ stages:
   # Deploy FakeRestAPI Web App
   # ToDo: Provide <environment name> you created in your DevOps project
   - deployment: FakeRestAPI
-    pool:
-      vmImage: 'Default'      
-    environment: '$(environmentName)'    # ToDo
+    pool: Default
+      # vmImage: 'Default'      
+    environment: 'testing'    # ToDo
     strategy:
       runOnce:
         deploy:
