@@ -185,7 +185,7 @@ stages:
         ls -la
       displayName: Install JMeter
     - bash: |
-        apache-jmeter-5.5/bin/jmeter -n -t automatedtesting/jmeter/EnduranceTestSuite.jmx \
+        apache-jmeter-5.5/bin/jmeter -n -t automatedtesting/jmeter/Starter.jmx \
                                    -l log/jmeter/test-result.csv \
                                    -e -f -o log/jmeter/test-html-report \
                                    -j log/jmeter/jmeter-test.log
