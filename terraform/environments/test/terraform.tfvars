@@ -18,4 +18,4 @@ address_prefix = "10.5.1.0/24"
 
 # Credentials
 admin_username = "omotola"
-public_key_path = "/home/vsts/work/_temp/id_rsa.pub"
+public_key_path = "/etc/ssl/certs/id_rsa.pub"
