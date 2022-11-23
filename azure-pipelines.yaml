@@ -238,7 +238,7 @@ stages:
             inputs:
               # azureSubscription: '$(azureServiceConnectionId)'
               azureSubscription: '$(azureSubscription)'
-              appName: udacity-azuredevops-fakerestapi
+              appName: myApplication-AppService-tola
               appType: webApp
               package: '$(Pipeline.Workspace)/drop-fakerestapi/fakerestapi-$(Build.BuildId).zip'   # ToDo: Use the published zip artifact. 
               
