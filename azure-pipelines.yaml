@@ -170,8 +170,8 @@ stages:
     # ToDo: Complete the ArchiveFiles@2 task and publish step 
   - job: PerformanceTests
     dependsOn: BuildArtifact
-    pool:
-      vmImage: 'Default'
+    # pool:
+    #   vmImage: 'Default'
     steps:
     - bash: |
         sudo apt-get install openjdk-11-jre-headless -y
@@ -234,7 +234,7 @@ stages:
   - deployment: VMDeploy
     displayName: Selenium Tests
     environment:
-      name: 'TEST'
+      name: 'testing'
       resourceType: VirtualMachine
       tags: udacity-selenium
     strategy:
