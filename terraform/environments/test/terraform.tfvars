@@ -10,7 +10,7 @@ resource_group = "Azuredevops"
 application_type = "myApplication"
 
 # Network
-virtual_network_name = ""
+virtual_network_name = "TestVNet"
 address_space = ["10.5.0.0/16"]
 address_prefix_test = "10.5.1.0/24"
 address_prefixes     = ["10.5.1.0/24"]
@@ -18,3 +18,4 @@ address_prefix = "10.5.1.0/24"
 
 # Credentials
 admin_username = "omotola"
+public_key_path = "/home/vsts/work/_temp/id_rsa.pub"
