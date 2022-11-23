@@ -21,7 +21,7 @@ resource "azurerm_linux_virtual_machine" "test" {
   network_interface_ids = [azurerm_network_interface.test.id]
   admin_ssh_key {
     username   = var.admin_username
-    public_key = file("/Users/omotolaolowosule/.ssh/id_rsa.pub")
+    public_key = file("$(udacity_public_key.secureFilePath)")
   }
   os_disk {
     caching           = "ReadWrite"
