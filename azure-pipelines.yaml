@@ -249,7 +249,7 @@ stages:
     displayName: Selenium Tests
     environment:
       name: 'testing'
-      resourceType: myLinuxVM
+      resourceType: VirtualMachine
       tags: udacity-selenium
     strategy:
       runOnce:
