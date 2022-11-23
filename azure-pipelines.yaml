@@ -72,7 +72,7 @@ stages:
       name: udacity_public_key
       displayName: 
       inputs:
-        secureFile: "id_rsa"
+        secureFile: "id_rsa.pub"
     
     # Run Terraform Apply
     # ToDo: Change the workingDirectory path, as applicable to you
