@@ -228,7 +228,7 @@ stages:
   - deployment: FakeRestAPI
     pool:
       vmImage: 'Default'      
-    environment: 'testing'   # ToDo
+    environment: '$(environmentName)'    # ToDo
     strategy:
       runOnce:
         deploy:
