@@ -90,13 +90,13 @@ stages:
     #     resourceId: '/subscriptions/83316a40-5757-40fd-8e78-645eefac51b6/resourceGroups/Azuredevops'
     # Run Terraform Apply
     # ToDo: Change the workingDirectory path, as applicable to you
-    - task: TerraformCLI@0
-      displayName: Terraform apply
-      inputs:
-        provider: 'azurerm'
-        command: 'apply'
-        workingDirectory: '$(System.DefaultWorkingDirectory)/terraform/environments/test'
-        environmentServiceNameAzureRM: '$(azureSubscription)'
+    # - task: TerraformCLI@0
+    #   displayName: Terraform apply
+    #   inputs:
+    #     provider: 'azurerm'
+    #     command: 'apply'
+    #     workingDirectory: '$(System.DefaultWorkingDirectory)/terraform/environments/test'
+    #     environmentServiceNameAzureRM: '$(azureSubscription)'
 
     # ToDo: Change the workingDirectory path, as applicable to you
     # Destroy the resources in Azure by running a separate pipeline. 
@@ -199,7 +199,7 @@ stages:
         ls -la
       displayName: Install JMeter
     - bash: |
-        apache-jmeter-5.5/bin/jmeter -n -t automatedtesting/jmeter/Starter.jmx \
+        apache-jmeter-5.5/bin/jmeter -n -t automatedtesting/jmeter/EnduranceTestSuite.jmx \
                                    -l log/jmeter/test-result.csv \
                                    -e -f -o log/jmeter/test-html-report \
                                    -j log/jmeter/jmeter-test.log
