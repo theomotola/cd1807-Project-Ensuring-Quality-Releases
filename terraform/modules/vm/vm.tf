@@ -16,7 +16,7 @@ resource "azurerm_linux_virtual_machine" "test" {
   location            = var.location
   resource_group_name = var.resource_group
   size                = "Standard_DS2_v2"
-  source_image_id     =  "/subscriptions/83316a40-5757-40fd-8e78-645eefac51b6/resourceGroups/Azuredevops/providers/Microsoft.Compute/images/myPackerImage"
+  source_image_id     =  "/subscriptions/83316a40-5757-40fd-8e78-645eefac51b6/resourceGroups/Azuredevops/providers/Microsoft.Compute/images/myPackerImage2"
   admin_username      = var.admin_username
   network_interface_ids = [azurerm_network_interface.test.id]
   admin_ssh_key {
