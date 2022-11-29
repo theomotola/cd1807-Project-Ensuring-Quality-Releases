@@ -1,5 +1,5 @@
-# Project Starter
-This repository contains the starter code for the **Ensuring Quality Releases** project of the cd1807 Ensuring Quality Releases (Quality Assurance) course taught by Nathan Anderson. 
+# Ensuring Quality Releases
+Utilize Terraform to apply Infrastructure as Code (IaC) concepts to create different environment tiers that enable effective testing of code as it reaches the different phases of the release management process.
 
 
 ## How to use?
