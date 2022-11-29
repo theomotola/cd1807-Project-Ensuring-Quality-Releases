@@ -47,7 +47,7 @@ stages:
         # backendServiceArm: '$(azureServiceConnectionId)'
         backendServiceArm: '$(azureSubscription)'
         backendAzureRmResourceGroupName: 'tfstate'
-        backendAzureRmStorageAccountName: 'tfstate289024787'
+        backendAzureRmStorageAccountName: 'tfstate1469123004'
         backendAzureRmContainerName: 'tfstate'
         backendAzureRmKey: 'terraform.tfstate'
 
@@ -74,20 +74,20 @@ stages:
       inputs:
         secureFile: "id_rsa.pub"
         
-    # - script: |
-    #     echo Installing $(udacity_public_key.secureFilePath) to the trusted CA directory...
-    #     sudo chown root:root $(udacity_public_key.secureFilePath)
-    #     sudo chmod a+r $(udacity_public_key.secureFilePath)
-    #     sudo ln -s -t /etc/ssl/certs/ $(udacity_public_key.secureFilePath)        
-    # - task: TerraformCLI@0
-    #   inputs:
-    #     provider: 'azurerm'
-    #     command: 'import'
-    #     workingDirectory: '$(System.DefaultWorkingDirectory)/terraform/environments/test'
-    #     environmentServiceNameAzureRM: '$(azureSubscription)'
-    #     allowTelemetryCollection: true
-    #     resourceAddress: 'module.resource_group.azurerm_resource_group.test'
-    #     resourceId: '/subscriptions/0c7436df-9359-4a04-b572-96ab6d89334c/resourceGroups/Azuredevops'
+    - script: |
+        echo Installing $(udacity_public_key.secureFilePath) to the trusted CA directory...
+        sudo chown root:root $(udacity_public_key.secureFilePath)
+        sudo chmod a+r $(udacity_public_key.secureFilePath)
+        sudo ln -s -t /etc/ssl/certs/ $(udacity_public_key.secureFilePath)        
+    - task: TerraformCLI@0
+      inputs:
+        provider: 'azurerm'
+        command: 'import'
+        workingDirectory: '$(System.DefaultWorkingDirectory)/terraform/environments/test'
+        environmentServiceNameAzureRM: '$(azureSubscription)'
+        allowTelemetryCollection: true
+        resourceAddress: 'module.resource_group.azurerm_resource_group.test'
+        resourceId: '/subscriptions/83316a40-5757-40fd-8e78-645eefac51b6/resourceGroups/Azuredevops'
     # Run Terraform Apply
     # ToDo: Change the workingDirectory path, as applicable to you
     - task: TerraformCLI@0
