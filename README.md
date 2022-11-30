@@ -6,7 +6,7 @@ Develop and demonstrate your skills in using a variety of industry leading tools
 
 ## Terraform
 Utilize Terraform to apply Infrastructure as Code (IaC) concepts to create different environment tiers that enable effective testing of code as it reaches the different phases of the release management process.
-![architecture diagram](./images/Architecture.png)
+![Terraform Build](./img/terraform build.png)
 
 #Automated Testing
 
