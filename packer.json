@@ -2,13 +2,13 @@
     "builders": [{
       "type": "azure-arm",
   
-     "subscription_id" : "83316a40-5757-40fd-8e78-645eefac51b6",
-      "client_id" : "31f90266-e443-44a7-b60b-619b986d6e5d",
-      "client_secret" : "CNp8Q~-881LIIr8kvs1sihmXC9insUfBrAnWma2S",
+     "subscription_id" : "e2bf10f5-b611-44c7-9617-4a26610fc460",
+      "client_id" : "ccdb2f04-9869-49b1-b4af-2bc917e832ae",
+      "client_secret" : "kxo8Q~8z5_rLNMdFjxSAuRAh8KOUzNyOkMBYWbDR",
       "tenant_id" : "f958e84a-92b8-439f-a62d-4f45996b6d07",
   
       "managed_image_resource_group_name": "Azuredevops",
-      "managed_image_name": "myPackerImage2",
+      "managed_image_name": "myPackerImage",
   
       "os_type": "Linux",
       "image_publisher": "Canonical",
